@@ -3,25 +3,22 @@
 @(require "../utils.rkt" (for-label (only-meta-in 0 typed/racket)))
 @(provide typed-mod)
 
-@title[#:tag "quick"]{Quick Start}
+@title[#:tag "quick"]{快速开始typed-racket}
 
-Given a module written in the @racketmodname[racket] language, using
-Typed Racket requires the following steps:
+在 @racketmodname[racket] 中的模块使用typed racket, 遵循以下的步骤：
 
 @itemize[#:style
          'ordered
-         @item{Change the language to @racketmodname[typed/racket].}
-         @item{Change the uses of @racket[(require mod)] to
+         @item{将language修改为 @racketmodname[typed/racket].}
+         @item{将 @racket[(require mod)] 改为
            @racket[(require typed/mod)].}
-         @item{Annotate structure definitions and top-level
-           definitions with their types.} ]
+         @item{给结构和顶层定义加上类型签名} ]
 
-Then, when the program is run, it will automatically be typechecked
-before any execution, and any type errors will be reported.  If there
-are any type errors, the program will not run.
+然后，程序执行前就会自动检查它的类型，如果发生任何类型错误，则报告错误，
+停止执行。
 
-Here is an example program, written in the @racketmodname[racket]
-language:
+
+这是一个 @racketmodname[racket] 中的例子：
 
 @(define typed-mod
 @racketmod[
@@ -45,12 +42,12 @@ racket
            (sqr (- (pt-y p2) (pt-y p1))))))
 ]
 
-Here is the same program, in @racketmodname[typed/racket]:
+这是相同的用 @racketmodname[typed/racket] 写的例子:
 
 @|typed-mod|
 
-@section{Using Typed Racket from the Racket REPL}
+@section{在Racket REPL中使用typed racket}
 
-It is possible to use Typed Racket from the Racket REPL. To do so, start Racket
-with the following command line:
+我们可以在在Racket REPL中使用Typed Racket，只要在开启racket时
+使用如下命令行：
 @commandline{racket -I typed/racket}
